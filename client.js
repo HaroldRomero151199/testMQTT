@@ -3,6 +3,8 @@ const mqtt = require('mqtt');
 const clientId = '10:06:1C:83:E7:B1'
 const companyId = 'empresa3'
 
+require('dotenv').config();
+
 const options = {
   host: process.env.MQTT_HOST,
   port: process.env.MQTT_PORT,
@@ -81,11 +83,3 @@ client.on('offline', function () {
 client.on('error', function (error) {
   console.error('MQTT Client Error:', error);
 });
-
-function getTemperature() {
-  return 22.5; 
-}
-
-function getLocation() {
-  return { lat: 40.7128, lon: -74.0060 };
-}
